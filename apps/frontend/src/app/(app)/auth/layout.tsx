@@ -20,7 +20,9 @@ export default async function AuthLayout({
   return (
     <MantineWrapper>
       <Toaster />
-      <div className="bg-[#0E0E0E] flex flex-1 p-[12px] gap-[12px] min-h-screen w-screen text-white">
+      {/* w-full, not w-screen: 100vw includes the vertical scrollbar and
+          overflowed by its width (a horizontal scrollbar in RTL/Arabic) */}
+      <div className="bg-[#0E0E0E] flex flex-1 p-[12px] gap-[12px] min-h-screen w-full text-white">
         {/*<style>{`html, body {overflow-x: hidden;}`}</style>*/}
         <ReturnUrlComponent />
         <AttributionComponent />
