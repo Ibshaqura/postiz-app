@@ -16,6 +16,7 @@ import { Checkbox } from '@gitroom/react/form/checkbox';
 import { YoutubePreview } from '@gitroom/frontend/components/new-launch/providers/youtube/youtube.preview';
 import { useIntegration } from '@gitroom/frontend/components/launches/helpers/use.integration';
 import { stripHtmlValidation } from '@gitroom/helpers/utils/strip.html.validation';
+import { labelTranslationKey } from '@gitroom/react/translation/translated-label';
 const type = [
   {
     label: 'Public',
@@ -88,9 +89,9 @@ const YoutubeSettings: FC = () => {
           value: 'public',
         })}
       >
-        {type.map((t) => (
-          <option key={t.value} value={t.value}>
-            {t.label}
+        {type.map((option) => (
+          <option key={option.value} value={option.value}>
+            {t(labelTranslationKey(option.label), option.label)}
           </option>
         ))}
       </Select>
@@ -100,9 +101,9 @@ const YoutubeSettings: FC = () => {
           value: 'no',
         })}
       >
-        {madeForKids.map((t) => (
-          <option key={t.value} value={t.value}>
-            {t.label}
+        {madeForKids.map((option) => (
+          <option key={option.value} value={option.value}>
+            {t(labelTranslationKey(option.label), option.label)}
           </option>
         ))}
       </Select>

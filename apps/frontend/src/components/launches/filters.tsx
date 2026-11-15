@@ -300,7 +300,7 @@ export const Filters = () => {
               onClick={previous}
               className="cursor-pointer text-textColor rtl:rotate-180 px-[9px] mobile:px-0 mobile:w-[36px] bg-newBgColorInner h-full flex items-center justify-center hover:text-textItemFocused hover:bg-boxFocused"
             >
-              <svg
+              <svg data-rtl-flip
                 xmlns="http://www.w3.org/2000/svg"
                 width="8"
                 height="12"
@@ -328,7 +328,7 @@ export const Filters = () => {
               onClick={next}
               className="cursor-pointer text-textColor rtl:rotate-180 px-[9px] mobile:px-0 mobile:w-[36px] bg-newBgColorInner h-full flex items-center justify-center hover:text-textItemFocused hover:bg-boxFocused"
             >
-              <svg
+              <svg data-rtl-flip
                 xmlns="http://www.w3.org/2000/svg"
                 width="8"
                 height="12"
@@ -374,7 +374,7 @@ export const Filters = () => {
                   : 'opacity-50 cursor-not-allowed'
               )}
             >
-              <svg
+              <svg data-rtl-flip
                 xmlns="http://www.w3.org/2000/svg"
                 width="8"
                 height="12"
@@ -404,7 +404,7 @@ export const Filters = () => {
                   : 'opacity-50 cursor-not-allowed'
               )}
             >
-              <svg
+              <svg data-rtl-flip
                 xmlns="http://www.w3.org/2000/svg"
                 width="8"
                 height="12"

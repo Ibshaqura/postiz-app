@@ -58,6 +58,7 @@ const SaveSetModal: FC<{
 };
 
 export const Sets: FC = () => {
+  const t = useT();
   const fetch = useFetch();
   const user = useUser();
   const modal = useModals();
@@ -111,7 +112,7 @@ export const Sets: FC = () => {
             {...(params?.id ? { set: JSON.parse(params.content) } : {})}
             addEditSets={(data) => {
               modal.openModal({
-                title: 'Save as Set',
+                title: t('save_as_set', 'Save as Set'),
                 children: (
                   <SaveSetModal
                     initialValue={params?.name || ''}
@@ -163,7 +164,6 @@ export const Sets: FC = () => {
     []
   );
 
-  const t = useT();
 
   return (
     <div className="flex flex-col">

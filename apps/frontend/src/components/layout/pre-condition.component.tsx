@@ -4,6 +4,7 @@ import { ModalWrapperComponent } from '@gitroom/frontend/components/new-launch/m
 import { useModals } from '@gitroom/frontend/components/layout/new-modal';
 import { Button } from '@gitroom/react/form/button';
 import { TranslatedLabel } from '@gitroom/react/translation/translated-label';
+import { useT } from '@gitroom/react/translation/get.transation.service.client';
 
 export const PreConditionComponentModal: FC = () => {
   const modal = useModals();
@@ -32,12 +33,13 @@ export const PreConditionComponentModal: FC = () => {
   );
 };
 export const PreConditionComponent: FC = () => {
+  const t = useT();
   const modal = useModals();
   const query = useSearchParams();
   useEffect(() => {
     if (query.get('precondition')) {
       modal.openModal({
-        title: 'Suspicious activity detected',
+        title: t('suspicious_activity_detected', 'Suspicious activity detected'),
         withCloseButton: true,
         classNames: {
           modal: 'text-textColor',

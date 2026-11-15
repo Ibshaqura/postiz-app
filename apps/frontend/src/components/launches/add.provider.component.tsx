@@ -23,12 +23,13 @@ import { capitalize } from 'lodash';
 const resolver = classValidatorResolver(ApiKeyDto);
 
 export const useAddProvider = (update?: () => void, invite?: boolean) => {
+  const t = useT();
   const modal = useModals();
   const fetch = useFetch();
   return useCallback(async () => {
     const data = await (await fetch('/integrations')).json();
     modal.openModal({
-      title: 'Add Channel',
+      title: t('add_channel', 'Add Channel'),
       withCloseButton: true,
       children: (
         <AddProviderComponent invite={!!invite} update={update} {...data} />
@@ -511,6 +512,7 @@ export const AddProviderComponent: FC<{
   onboarding?: boolean;
   isMobile?: boolean;
 }> = (props) => {
+  const t = useT();
   const { update, social, article, onboarding, isMobile } = props;
   const extensionConnect = useExtensionConnect();
   const toaster = useToaster();
@@ -663,7 +665,7 @@ export const AddProviderComponent: FC<{
         }
         if (isExternal) {
           modal.openModal({
-            title: 'URL',
+            title: t('url', 'URL'),
             withCloseButton: true,
             ...(isMobile ? { removeLayout: true, fullScreen: true } : {}),
             classNames: {
@@ -701,7 +703,6 @@ export const AddProviderComponent: FC<{
     [onboarding]
   );
 
-  const t = useT();
 
   return (
     <div className="w-full flex flex-col gap-[20px] rounded-[4px] relative]">

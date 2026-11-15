@@ -9,6 +9,13 @@ interface TranslatedLabelProps {
 }
 
 /**
+ * Translation key derived from an English label ("Sign Up" -> "label_sign_up").
+ * Used by TranslatedLabel and by option lists rendered with t().
+ */
+export const labelTranslationKey = (label: string) =>
+  `label_${label.toLowerCase().replace(/\s+/g, '_').replace(/[^\w]/g, '')}`;
+
+/**
  * TranslatedLabel is a wrapper component that translates labels in form components
  *
  * @param label - The original label text (fallback if no translation found)
@@ -25,9 +32,7 @@ export function TranslatedLabel({
   const t = useT();
 
   // If no explicit key is provided, create one from the label
-  const key =
-    translationKey ||
-    `label_${label.toLowerCase().replace(/\s+/g, '_').replace(/[^\w]/g, '')}`;
+  const key = translationKey || labelTranslationKey(label);
 
   const translatedLabel = t(key, label, translationParams);
 

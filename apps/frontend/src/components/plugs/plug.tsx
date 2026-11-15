@@ -80,6 +80,7 @@ export const PlugPop: FC<{
     plugFunction: string;
   };
 }> = (props) => {
+  const t = useT();
   const { plug, settings, data } = props;
   const { closeAll } = useModals();
   const fetch = useFetch();
@@ -102,7 +103,7 @@ export const PlugPop: FC<{
           ...acc,
           [field.name]: field.validation
             ? string().matches(convertBackRegex(field.validation), {
-                message: 'Invalid value',
+                message: t('invalid_value', 'Invalid value'),
               })
             : null,
         };
@@ -129,7 +130,6 @@ export const PlugPop: FC<{
     closeAll();
   }, []);
 
-  const t = useT();
 
   return (
     <FormProvider {...form}>

@@ -11,6 +11,7 @@ import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
 import { useDecisionModal } from '@gitroom/frontend/components/layout/new-modal';
 import { McpClientIcon } from '@gitroom/frontend/components/public-api/mcp.client.icons';
 import clsx from 'clsx';
+import { labelTranslationKey } from '@gitroom/react/translation/translated-label';
 
 // Remote clients can't set headers, they get a URL to paste (hint = where)
 export const remoteMcpClients = {
@@ -674,7 +675,7 @@ const CliSection = ({ apiKey }: { apiKey: string }) => {
         {displaySteps.map((step, i) => (
           <div key={i} className="flex flex-col gap-[6px]">
             <div className="text-[13px] font-[600] text-customColor18">
-              {i + 1}. {step.label}
+              {i + 1}. {t(labelTranslationKey(step.label), step.label)}
             </div>
             <pre className="bg-newBgColorInner border border-newBorder rounded-[8px] p-[16px] text-[13px] whitespace-pre-wrap break-all overflow-x-auto leading-[1.6]">
               {step.code}

@@ -412,7 +412,7 @@ export const MediaComponentInner: FC<{
                     disabled={loading}
                     onClick={() =>
                       modals.openModal({
-                        title: 'Media Library',
+                        title: t('media_library', 'Media Library'),
                         askClose: false,
                         closeOnEscape: true,
                         fullScreen: true,

@@ -12,6 +12,7 @@ import { Select } from '@gitroom/react/form/select';
 import { useWatch } from 'react-hook-form';
 import { TranslatedLabel } from '@gitroom/react/translation/translated-label';
 import { useT } from '@gitroom/react/translation/get.transation.service.client';
+import { labelTranslationKey } from '@gitroom/react/translation/translated-label';
 
 const topicTypes = [
   {
@@ -77,9 +78,9 @@ const GmbSettings: FC = () => {
           value: 'STANDARD',
         })}
       >
-        {topicTypes.map((t) => (
-          <option key={t.value} value={t.value}>
-            {t.label}
+        {topicTypes.map((option) => (
+          <option key={option.value} value={option.value}>
+            {t(labelTranslationKey(option.label), option.label)}
           </option>
         ))}
       </Select>
@@ -90,9 +91,9 @@ const GmbSettings: FC = () => {
           value: 'NONE',
         })}
       >
-        {callToActionTypes.map((t) => (
-          <option key={t.value} value={t.value}>
-            {t.label}
+        {callToActionTypes.map((option) => (
+          <option key={option.value} value={option.value}>
+            {t(labelTranslationKey(option.label), option.label)}
           </option>
         ))}
       </Select>

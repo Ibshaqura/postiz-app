@@ -22,6 +22,7 @@ export const CheckPaymentInner: FC<{
   mutate: () => void;
   children: ReactNode;
 }> = (props) => {
+  const t = useT();
   const [showLoader, setShowLoader] = useState(true);
   const fetch = useFetch();
   const toaster = useToaster();
@@ -51,7 +52,7 @@ export const CheckPaymentInner: FC<{
     }
     if (status === 1) {
       modal.open({
-        title: 'Invalid Payment',
+        title: t('invalid_payment', 'Invalid Payment'),
         onlyApprove: true,
         approveLabel: 'OK',
         description:

@@ -14,6 +14,7 @@ import { InstagramAudioSelector } from '@gitroom/frontend/components/new-launch/
 import { useIntegration } from '@gitroom/frontend/components/launches/helpers/use.integration';
 import { useT } from '@gitroom/react/translation/get.transation.service.client';
 import { InstagramPreview } from '@gitroom/frontend/components/new-launch/providers/instagram/instagram.preview';
+import { labelTranslationKey } from '@gitroom/react/translation/translated-label';
 const postType = [
   {
     value: 'post',
@@ -56,7 +57,7 @@ const InstagramCollaborators: FC<{
         <option value="">{t('select_post_type', 'Select Post Type...')}</option>
         {postType.map((item) => (
           <option key={item.value} value={item.value}>
-            {item.label}
+            {t(labelTranslationKey(item.label), item.label)}
           </option>
         ))}
       </Select>
@@ -101,7 +102,7 @@ const InstagramCollaborators: FC<{
             >
               {graduationStrategies.map((item) => (
                 <option key={item.value} value={item.value}>
-                  {item.label}
+                  {t(labelTranslationKey(item.label), item.label)}
                 </option>
               ))}
             </Select>

@@ -12,6 +12,7 @@ import { Textarea } from '@gitroom/react/form/textarea';
 import { useSettings } from '@gitroom/frontend/components/launches/helpers/use.values';
 import clsx from 'clsx';
 import { useT } from '@gitroom/react/translation/get.transation.service.client';
+import { labelTranslationKey } from '@gitroom/react/translation/translated-label';
 const delayOptions = [
   {
     name: 'Immediately',
@@ -180,7 +181,7 @@ const Plug: FC<{
             >
               {delayOptions.map((p) => (
                 <option key={p.name} value={p.value}>
-                  {p.name}
+                  {t(labelTranslationKey(p.name), p.name)}
                 </option>
               ))}
             </Select>

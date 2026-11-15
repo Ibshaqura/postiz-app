@@ -22,7 +22,8 @@ body * {
 
 /* RTL: mirror icons that point left/right (back, next, prev…).
    `scale` (not `transform`) so it combines with rotate-* classes. */
-html[dir='rtl'] .rtl-flip {
+html[dir='rtl'] .rtl-flip,
+html[dir='rtl'] [data-rtl-flip] {
   scale: -1 1;
 }
 

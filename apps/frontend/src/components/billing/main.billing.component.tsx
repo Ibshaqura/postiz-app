@@ -594,7 +594,7 @@ export const MainBillingComponent: FC<{
               if (checkDiscount.offerCoupon) {
                 const info = await new Promise((res) => {
                   modal.openModal({
-                    title: 'Before you cancel',
+                    title: t('before_you_cancel', 'Before you cancel'),
                     withCloseButton: true,
                     onClose: () => {
                       toast.show(

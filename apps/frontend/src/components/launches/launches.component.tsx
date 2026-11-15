@@ -703,7 +703,7 @@ export const LaunchesComponent = () => {
                 }
                 className="group-[.sidebar]:rotate-[180deg] group-[.sidebar]:mx-auto mobile:hidden text-btnText bg-btnSimple rounded-[6px] w-[24px] h-[24px] flex items-center justify-center cursor-pointer select-none"
               >
-                <svg
+                <svg data-rtl-flip
                   xmlns="http://www.w3.org/2000/svg"
                   width="7"
                   height="13"

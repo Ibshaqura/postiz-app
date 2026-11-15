@@ -17,6 +17,7 @@ import { useIntegration } from '@gitroom/frontend/components/launches/helpers/us
 import { FacebookPreview } from '@gitroom/frontend/components/new-launch/providers/facebook/facebook.preview';
 import { useT } from '@gitroom/react/translation/get.transation.service.client';
 import { useEffect } from 'react';
+import { labelTranslationKey } from '@gitroom/react/translation/translated-label';
 
 const postType = [
   {
@@ -63,7 +64,7 @@ export const FacebookSettings = () => {
           </option>
           {postType.map((item) => (
             <option key={item.value} value={item.value}>
-              {item.label}
+              {t(labelTranslationKey(item.label), item.label)}
             </option>
           ))}
         </Select>

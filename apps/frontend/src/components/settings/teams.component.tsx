@@ -17,6 +17,7 @@ import { useToaster } from '@gitroom/react/toaster/toaster';
 import { deleteDialog } from '@gitroom/react/helpers/delete.dialog';
 import copy from 'copy-to-clipboard';
 import { useT } from '@gitroom/react/translation/get.transation.service.client';
+import { labelTranslationKey } from '@gitroom/react/translation/translated-label';
 
 const roles = [
   {
@@ -93,7 +94,7 @@ export const AddMember = () => {
             <option value="">{t('select_role', 'Select Role')}</option>
             {roles.map((role) => (
               <option key={role.value} value={role.value}>
-                {role.name}
+                {t(labelTranslationKey(role.name), role.name)}
               </option>
             ))}
           </Select>

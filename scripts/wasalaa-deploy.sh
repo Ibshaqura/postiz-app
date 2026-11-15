@@ -15,6 +15,10 @@ BRANCH=${BRANCH:-wasalaa}
 LOG=/opt/postiz/build.log
 export DOCKER_BUILDKIT=1
 
+# one deploy at a time; a second run waits up to 30 min for the first
+exec 9>/opt/postiz/deploy.lock
+flock -w 1800 9 || { echo "another deploy is still running"; exit 1; }
+
 cd "$SRC"
 git fetch -q origin "$BRANCH"
 git checkout -q -B "$BRANCH" "origin/$BRANCH"

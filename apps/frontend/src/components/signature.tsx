@@ -1,9 +1,11 @@
 import { FC, useCallback } from 'react';
 import { SignaturesComponent } from '@gitroom/frontend/components/settings/signatures.component';
 import { useModals } from '@gitroom/frontend/components/layout/new-modal';
+import { useT } from '@gitroom/react/translation/get.transation.service.client';
 export const SignatureBox: FC<{
   editor: any;
 }> = ({ editor }) => {
+  const t = useT();
   const modals = useModals();
   const appendValue = (val: string) => {
     editor?.commands?.insertContent('\n\n' + val);
@@ -12,7 +14,7 @@ export const SignatureBox: FC<{
 
   const addSignature = useCallback(() => {
     modals.openModal({
-      title: 'Add Signature',
+      title: t('add_signature', 'Add Signature'),
       withCloseButton: true,
       children: (close) => (
         <SignatureModal appendSignature={appendValue} close={close} />

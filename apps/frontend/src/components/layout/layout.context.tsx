@@ -6,6 +6,7 @@ import { deleteDialog } from '@gitroom/react/helpers/delete.dialog';
 import { useDecisionModal } from '@gitroom/frontend/components/layout/new-modal';
 import { useReturnUrl } from '@gitroom/frontend/app/(app)/auth/return.url.component';
 import { useVariables } from '@gitroom/react/helpers/variable.context';
+import { useT } from '@gitroom/react/translation/get.transation.service.client';
 export default function LayoutContext(params: { children: ReactNode }) {
   if (params?.children) {
     // eslint-disable-next-line react/no-children-prop
@@ -23,6 +24,7 @@ export function setCookie(cname: string, cvalue: string, exdays: number) {
   document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
 }
 function LayoutContextInner(params: { children: ReactNode }) {
+  const t = useT();
   const returnUrl = useReturnUrl();
   const { backendUrl, isGeneral, isSecured } = useVariables();
   const decision = useDecisionModal();
@@ -112,7 +114,7 @@ function LayoutContextInner(params: { children: ReactNode }) {
           .catch(() => ({}));
         if (canManageBillingUi === false) {
           await decision.open({
-            title: 'Payment Required',
+            title: t('payment_required', 'Payment Required'),
             onlyApprove: true,
             approveLabel: 'OK',
             description: `${message} Please ask an admin of your organization.`,
