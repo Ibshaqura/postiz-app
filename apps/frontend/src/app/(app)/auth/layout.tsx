@@ -9,6 +9,7 @@ import { LogoTextComponent } from '@gitroom/frontend/components/ui/logo-text.com
 import { MantineWrapper } from '@gitroom/react/helpers/mantine.wrapper';
 import { Toaster } from '@gitroom/react/toaster/toaster';
 const ReturnUrlComponent = loadDynamic(() => import('./return.url.component'));
+import { LanguageComponent } from '@gitroom/frontend/components/layout/language.component';
 export default async function AuthLayout({
   children,
 }: {
@@ -25,7 +26,11 @@ export default async function AuthLayout({
         <AttributionComponent />
         <div className="flex flex-col py-[40px] px-[20px] flex-1 lg:w-[600px] lg:flex-none rounded-[12px] text-white p-[12px] bg-[#1A1919]">
           <div className="w-full max-w-[440px] mx-auto justify-center gap-[20px] h-full flex flex-col text-white">
-            <LogoTextComponent />
+            <div className="flex items-center justify-between">
+              <LogoTextComponent />
+              {/* same language picker as inside the app (flag → language modal) */}
+              <LanguageComponent />
+            </div>
             <div className="flex">{children}</div>
           </div>
         </div>

@@ -69,7 +69,8 @@ export const ChangeLanguageComponent = () => {
   const t = useT();
 
   const handleLanguageChange = (language: string) => {
-    setCookie(language);
+    // keep the chosen language for a year (default would be 7 days)
+    setCookie(language, { days: 365 });
     i18next.changeLanguage(language);
     modals.closeCurrent();
     const rtlLanguages = ['he', 'ar'];

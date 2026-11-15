@@ -20,6 +20,11 @@ body * {
   outline: none !important;
 }
 
+/* Arabic letters → Thmanyah Sans (unicode-range), everything else → Plus Jakarta Sans */
+.font-app {
+  font-family: var(--font-thmanyah), var(--font-jakarta), system-ui, sans-serif;
+}
+
 .box {
   position: relative;
 }
