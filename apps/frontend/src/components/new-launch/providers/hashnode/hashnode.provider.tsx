@@ -15,8 +15,10 @@ import { useMediaDirectory } from '@gitroom/react/helpers/use.media.directory';
 import clsx from 'clsx';
 import { MediaComponent } from '@gitroom/frontend/components/media/media.component';
 import { Canonical } from '@gitroom/react/form/canonical';
+import { useT } from '@gitroom/react/translation/get.transation.service.client';
 
 const HashnodeSettings: FC = () => {
+  const t = useT();
   const form = useSettings();
   const { date } = useIntegration();
   return (
@@ -30,7 +32,7 @@ const HashnodeSettings: FC = () => {
       />
       <MediaComponent
         label="Cover picture"
-        description="Add a cover picture"
+        description={t('add_a_cover_picture', 'Add a cover picture')}
         {...form.register('main_image')}
       />
       <div className="mt-[20px]">

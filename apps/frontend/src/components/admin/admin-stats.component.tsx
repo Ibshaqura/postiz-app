@@ -6,6 +6,8 @@ import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
 import { useUser } from '@gitroom/frontend/components/layout/user.context';
 import { Button } from '@gitroom/react/form/button';
 import { LoadingComponent } from '@gitroom/frontend/components/layout/loading';
+import { TranslatedLabel } from '@gitroom/react/translation/translated-label';
+import { useT } from '@gitroom/react/translation/get.transation.service.client';
 
 interface PerSocial {
   provider: string;
@@ -106,7 +108,7 @@ const PerSocialTable: FC<{ title: string; block: StatsBlock }> = ({
   <div className="border border-newTableBorder rounded-[8px] overflow-hidden">
     <div className="grid grid-cols-[1fr_120px] gap-[12px] px-[12px] py-[10px] bg-newBgColorInner text-[12px] uppercase opacity-70 border-b border-newTableBorder">
       <div>{title}</div>
-      <div className="text-right">Count</div>
+      <div className="text-right"><TranslatedLabel label="Count" translationKey="count" /></div>
     </div>
     {block.perSocial.length === 0 ? (
       <div className="px-[12px] py-[10px] text-[13px] opacity-70">
@@ -127,6 +129,7 @@ const PerSocialTable: FC<{ title: string; block: StatsBlock }> = ({
 );
 
 export const AdminStatsComponent: FC = () => {
+  const t = useT();
   const user = useUser();
 
   const [fromInput, setFromInput] = useState(today());
@@ -153,7 +156,7 @@ export const AdminStatsComponent: FC = () => {
   return (
     <div className="flex flex-col gap-[16px] text-textColor">
       <div className="flex items-center justify-between">
-        <div className="text-[20px] font-[600]">Admin Stats</div>
+        <div className="text-[20px] font-[600]"><TranslatedLabel label="Admin Stats" translationKey="admin_stats" /></div>
         {data && (
           <div className="text-[13px] opacity-70">
             {new Date(data.from).toLocaleDateString()} —{' '}
@@ -185,7 +188,7 @@ export const AdminStatsComponent: FC = () => {
 
       <div className="flex flex-wrap gap-[12px] items-end bg-newBgColorInner border border-newTableBorder rounded-[8px] p-[12px]">
         <div className="flex flex-col gap-[6px]">
-          <div className="text-[12px] opacity-70">From</div>
+          <div className="text-[12px] opacity-70"><TranslatedLabel label="From" translationKey="from_2" /></div>
           <input
             type="date"
             value={fromInput}
@@ -228,7 +231,7 @@ export const AdminStatsComponent: FC = () => {
       {isLoading ? (
         <LoadingComponent />
       ) : error || !data ? (
-        <div className="text-red-400">Failed to load stats.</div>
+        <div className="text-red-400"><TranslatedLabel label="Failed to load stats." translationKey="failed_to_load_stats" /></div>
       ) : (
         <div className="overflow-x-auto pb-[8px] scrollbar scrollbar-thumb-fifth scrollbar-track-newBgColor flex flex-col gap-[16px]">
           <div className="flex gap-[12px]">
@@ -303,13 +306,13 @@ export const AdminStatsComponent: FC = () => {
           <div className="flex gap-[12px] items-start">
             <div className="flex-1 min-w-[220px] shrink-0">
               <PerSocialTable
-                title="Posts published per social"
+                title={t('posts_published_per_social', 'Posts published per social')}
                 block={data.posts}
               />
             </div>
             <div className="flex-1 min-w-[220px] shrink-0">
               <PerSocialTable
-                title="Connected accounts per social"
+                title={t('connected_accounts_per_social', 'Connected accounts per social')}
                 block={data.connected}
               />
             </div>
@@ -326,7 +329,7 @@ export const AdminStatsComponent: FC = () => {
             {data.publishingChannels && (
               <div className="flex-1 min-w-[220px] shrink-0">
                 <PerSocialTable
-                  title="Unique channels - published"
+                  title={t('unique_channels_published', 'Unique channels - published')}
                   block={data.publishingChannels}
                 />
               </div>
@@ -334,7 +337,7 @@ export const AdminStatsComponent: FC = () => {
             {data.scheduledChannels && (
               <div className="flex-1 min-w-[220px] shrink-0">
                 <PerSocialTable
-                  title="Unique channels - scheduled"
+                  title={t('unique_channels_scheduled', 'Unique channels - scheduled')}
                   block={data.scheduledChannels}
                 />
               </div>
@@ -342,7 +345,7 @@ export const AdminStatsComponent: FC = () => {
             {data.publishingAccounts && (
               <div className="flex-1 min-w-[220px] shrink-0">
                 <PerSocialTable
-                  title="Unique users - published"
+                  title={t('unique_users_published', 'Unique users - published')}
                   block={data.publishingAccounts}
                 />
               </div>
@@ -350,7 +353,7 @@ export const AdminStatsComponent: FC = () => {
             {data.scheduledAccounts && (
               <div className="flex-1 min-w-[220px] shrink-0">
                 <PerSocialTable
-                  title="Unique users - scheduled"
+                  title={t('unique_users_scheduled', 'Unique users - scheduled')}
                   block={data.scheduledAccounts}
                 />
               </div>
@@ -358,7 +361,7 @@ export const AdminStatsComponent: FC = () => {
             {data.activeOrgsBySource && (
               <div className="flex-1 min-w-[220px] shrink-0">
                 <PerSocialTable
-                  title="Active users per source"
+                  title={t('active_users_per_source', 'Active users per source')}
                   block={data.activeOrgsBySource}
                 />
               </div>
@@ -366,7 +369,7 @@ export const AdminStatsComponent: FC = () => {
             {data.connectedClients && (
               <div className="flex-1 min-w-[220px] shrink-0">
                 <PerSocialTable
-                  title="Connected clients per name"
+                  title={t('connected_clients_per_name', 'Connected clients per name')}
                   block={data.connectedClients}
                 />
               </div>

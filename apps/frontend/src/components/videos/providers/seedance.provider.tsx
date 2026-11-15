@@ -5,6 +5,8 @@ import { useVideo } from '@gitroom/frontend/components/videos/video.context.wrap
 import { Textarea } from '@gitroom/react/form/textarea';
 import { MultiMediaComponent } from '@gitroom/frontend/components/media/media.component';
 import { hasExtension } from '@gitroom/helpers/utils/has.extension';
+import { TranslatedLabel } from '@gitroom/react/translation/translated-label';
+import { useT } from '@gitroom/react/translation/get.transation.service.client';
 
 export interface Voice {
   id: string;
@@ -13,6 +15,7 @@ export interface Voice {
 }
 
 const SeedanceSettings: FC = () => {
+  const t = useT();
   const { register, watch, setValue, formState } = useFormContext();
   const { value } = useVideo();
 
@@ -34,12 +37,12 @@ const SeedanceSettings: FC = () => {
         })}
         error={formState?.errors?.prompt?.message}
       />
-      <div className="mb-[6px]">Images (max 3)</div>
+      <div className="mb-[6px]"><TranslatedLabel label="Images (max 3)" translationKey="images_max_3" /></div>
       <MultiMediaComponent
         allData={[]}
         dummy={true}
-        text="Images"
-        description="Images"
+        text={t('images', 'Images')}
+        description={t('images', 'Images')}
         name="images"
         label="Media"
         value={mediaValue}

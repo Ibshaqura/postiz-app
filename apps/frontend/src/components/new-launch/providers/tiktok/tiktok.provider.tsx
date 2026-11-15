@@ -169,7 +169,7 @@ const TikTokSettings: FC<{
           </option>
         ))}
       </Select>
-      {isUploadMode && <div className="-mt-[23px] mb-[23px] text-red-600">After posting you fill find a notification inside your Inbox about your post (not content studio)</div>}
+      {isUploadMode && <div className="-mt-[23px] mb-[23px] text-red-600">{t('after_posting_you_fill_find_a_notification_inside_your_inbox', 'After posting you fill find a notification inside your Inbox about your post (not content studio)')}</div>}
       <div className={clsx('flex flex-col', directPostOnly)}>
         <Select
           label={

@@ -6,6 +6,7 @@ import { useFormContext } from 'react-hook-form';
 import { Button } from '@gitroom/react/form/button';
 import clsx from 'clsx';
 import { useVideo } from '@gitroom/frontend/components/videos/video.context.wrapper';
+import { TranslatedLabel } from '@gitroom/react/translation/translated-label';
 
 export interface Voices {
   voices: Voice[];
@@ -101,7 +102,7 @@ const VoiceSelector: FC = () => {
   if (isLoading || !data?.voices?.length) {
     return (
       <div className="flex items-center justify-center py-4">
-        <div className="text-sm text-gray-500">Loading voices...</div>
+        <div className="text-sm text-gray-500"><TranslatedLabel label="Loading voices..." translationKey="loading_voices" /></div>
       </div>
     );
   }

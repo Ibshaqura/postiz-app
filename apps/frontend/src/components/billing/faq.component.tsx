@@ -36,7 +36,7 @@ const useFaqList = () => {
           isGeneral ? 'Postiz' : 'Gitroom'
         } is proudly open-source! We believe in an ethical and transparent culture, meaning that ${
           isGeneral ? 'Postiz' : 'Gitroom'
-        } will live forever. You can check out the entire code or use it for personal projects. To view the open-source repository, <a href="https://github.com/gitroomhq/postiz-app" target="_blank" style="text-decoration: underline;">click here</a>.`
+        } will live forever. You can check out the entire code or use it for personal projects. To view the open-source repository, <a href="https://github.com/gitroomhq/postiz-app" target="_blank" style="text-decoration: underline;">{t('click_here', 'click here')}</a>.`
       ),
     },
     {
@@ -66,9 +66,8 @@ For example, you can schedule your posts on X, Facebook, Instagram, TikTok, YouT
             ),
             description: t(
               'faq_delete_account_description',
-              `If you don't want to continue using ${
-                isGeneral ? 'Postiz' : 'Gitroom'
-              }, you can delete your account, including all your organizations, channels and posts. This action cannot be undone.`
+              "If you don't want to continue using {{product}}, you can delete your account, including all your organizations, channels and posts. This action cannot be undone.",
+              { product: isGeneral ? 'Postiz' : 'Gitroom' }
             ),
             content: <DeleteAccountComponent isLink={true} />,
           },

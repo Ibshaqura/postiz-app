@@ -20,6 +20,7 @@ import { deleteDialog } from '@gitroom/react/helpers/delete.dialog';
 import SafeImage from '@gitroom/react/helpers/safe.image';
 import { useT } from '@gitroom/react/translation/get.transation.service.client';
 import { useFormatting } from '@gitroom/frontend/components/launches/helpers/use.formatting';
+import { TranslatedLabel } from '@gitroom/react/translation/translated-label';
 const RenderRedditComponent: FC<{
   type: string;
   images?: Array<{
@@ -86,7 +87,7 @@ const RedditPreview: FC = (props) => {
     },
   });
   if (!settings || !settings.length) {
-    return <>Please add at least one Subreddit from the settings</>;
+    return <><TranslatedLabel label="Please add at least one Subreddit from the settings" translationKey="please_add_at_least_one_subreddit_from_the_settings" /></>;
   }
   return (
     <div className="flex flex-col gap-[40px] w-full">

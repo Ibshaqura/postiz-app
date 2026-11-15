@@ -15,6 +15,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { object, string } from 'zod';
 import { Select } from '@gitroom/react/form/select';
 import { LoadingComponent } from '@gitroom/frontend/components/layout/loading';
+import { TranslatedLabel } from '@gitroom/react/translation/translated-label';
 
 const aspectRatio = [
   { key: 'portrait', value: 'Portrait' },
@@ -192,7 +193,7 @@ const HeygenProviderComponent = () => {
             ))}
           </Select>
 
-          <div className="text-lg mb-3">Voice to generate</div>
+          <div className="text-lg mb-3"><TranslatedLabel label="Voice to generate" translationKey="voice_to_generate" /></div>
           {!hideVoiceGenerator && (
             <Button onClick={generateVoice} loading={voiceLoading}>
               Generate Voice From My Post Text
@@ -201,7 +202,7 @@ const HeygenProviderComponent = () => {
           <Textarea label="" {...form.register('voice')} />
           {!!data?.length && (
             <>
-              <div className="text-lg my-3">Select Avatar</div>
+              <div className="text-lg my-3"><TranslatedLabel label="Select Avatar" translationKey="select_avatar" /></div>
               <SelectAvatarComponent
                 avatarList={data.map((p: any) => ({
                   avatar_id: p.avatar_id || p.id,
@@ -226,7 +227,7 @@ const HeygenProviderComponent = () => {
 
           {!!voices?.length && (
             <>
-              <div className="text-lg my-3">Select Voice</div>
+              <div className="text-lg my-3"><TranslatedLabel label="Select Voice" translationKey="select_voice" /></div>
               <SelectVoiceComponent
                 voiceList={voices}
                 onChange={(id: string) => form.setValue('selectedVoice', id)}
@@ -237,7 +238,7 @@ const HeygenProviderComponent = () => {
             </>
           )}
 
-          <Button type="submit">Generate Video</Button>
+          <Button type="submit"><TranslatedLabel label="Generate Video" translationKey="generate_video" /></Button>
         </form>
       </FormProvider>
     </div>

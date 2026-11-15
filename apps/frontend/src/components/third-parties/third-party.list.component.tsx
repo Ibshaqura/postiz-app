@@ -11,6 +11,7 @@ import { useT } from '@gitroom/react/translation/get.transation.service.client';
 import { Input } from '@gitroom/react/form/input';
 import { useToaster } from '@gitroom/react/toaster/toaster';
 import { ModalWrapperComponent } from '@gitroom/frontend/components/new-launch/modal.wrapper.component';
+import { TranslatedLabel } from '@gitroom/react/translation/translated-label';
 
 export const ApiModal: FC<{
   identifier: string;
@@ -155,7 +156,7 @@ export const ThirdPartyListComponent: FC<{ reload: () => void }> = (props) => {
           <div className="whitespace-pre-wrap text-left text-lg">{p.title}</div>
           <div className="whitespace-pre-wrap text-left">{p.description}</div>
           <div className="w-full flex">
-            <Button className="w-full">Add</Button>
+            <Button className="w-full"><TranslatedLabel label="Add" translationKey="add" /></Button>
           </div>
         </div>
       ))}

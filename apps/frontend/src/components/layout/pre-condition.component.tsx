@@ -3,6 +3,7 @@ import { useSearchParams } from 'next/navigation';
 import { ModalWrapperComponent } from '@gitroom/frontend/components/new-launch/modal.wrapper.component';
 import { useModals } from '@gitroom/frontend/components/layout/new-modal';
 import { Button } from '@gitroom/react/form/button';
+import { TranslatedLabel } from '@gitroom/react/translation/translated-label';
 
 export const PreConditionComponentModal: FC = () => {
   const modal = useModals();
@@ -25,7 +26,7 @@ export const PreConditionComponentModal: FC = () => {
         >
           End trial and pay now
         </Button>
-        <Button onClick={modal.closeCurrent} secondary={true}>Cancel</Button>
+        <Button onClick={modal.closeCurrent} secondary={true}><TranslatedLabel label="Cancel" translationKey="cancel" /></Button>
       </div>
     </div>
   );

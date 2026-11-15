@@ -3,6 +3,8 @@
 import { FC, FormEvent, useCallback, useState } from 'react';
 import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
 import { Input } from '@gitroom/react/form/input';
+import { TranslatedLabel } from '@gitroom/react/translation/translated-label';
+import { useT } from '@gitroom/react/translation/get.transation.service.client';
 
 export const OAuthSelfHosted: FC<{
   appName: string;
@@ -18,6 +20,7 @@ export const OAuthSelfHosted: FC<{
   };
   onBack: () => void;
 }> = ({ appName, askEmail, params, onBack }) => {
+  const t = useT();
   const fetch = useFetch();
   const [instanceUrl, setInstanceUrl] = useState('');
   const [apiKey, setApiKey] = useState('');
@@ -77,7 +80,7 @@ export const OAuthSelfHosted: FC<{
       className="border-t border-[#2A2929] pt-[16px] flex flex-col gap-[16px]"
     >
       <div className="flex flex-col gap-[4px]">
-        <div className="text-[16px] font-semibold">Use self-hosted</div>
+        <div className="text-[16px] font-semibold"><TranslatedLabel label="Use self-hosted" translationKey="use_self_hosted" /></div>
         <div className="text-[14px] text-gray-400">
           {appName} will work with your own Postiz instance. Postiz Cloud
           relays its requests, and your API key is stored encrypted.
@@ -107,7 +110,7 @@ export const OAuthSelfHosted: FC<{
           removeError={true}
           value={apiKey}
           onChange={(e) => setApiKey(e.target.value)}
-          placeholder="Settings > Agents / Dev on your instance"
+          placeholder={t('settings_agents_dev_on_your_instance', 'Settings > Agents / Dev on your instance')}
           autoComplete="off"
           spellCheck={false}
         />

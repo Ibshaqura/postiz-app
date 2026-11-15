@@ -19,6 +19,7 @@ import './providers/heygen.provider';
 import { thirdPartyList } from '@gitroom/frontend/components/third-parties/third-party.wrapper';
 import { useLaunchStore } from '@gitroom/frontend/components/new-launch/store';
 import { useModals } from '@gitroom/frontend/components/layout/new-modal';
+import { TranslatedLabel } from '@gitroom/react/translation/translated-label';
 
 const ThirdPartyContext = createContext({
   id: '',
@@ -117,7 +118,7 @@ export const ThirdPartyPopup: FC<{
                 {p.description}
               </div>
               <div className="w-full flex">
-                <Button className="w-full">Use</Button>
+                <Button className="w-full"><TranslatedLabel label="Use" translationKey="use" /></Button>
               </div>
             </div>
           ))}

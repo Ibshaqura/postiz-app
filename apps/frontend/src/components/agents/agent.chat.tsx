@@ -40,6 +40,7 @@ import { makeId } from '@gitroom/nestjs-libraries/services/make.is';
 import { ExistingDataContextProvider } from '@gitroom/frontend/components/launches/helpers/use.existing.data';
 import { useT } from '@gitroom/react/translation/get.transation.service.client';
 import { hasExtension } from '@gitroom/helpers/utils/has.extension';
+import { TranslatedLabel } from '@gitroom/react/translation/translated-label';
 
 export const AgentChat: FC = () => {
   const { backendUrl } = useVariables();
@@ -165,7 +166,7 @@ const Message: FC<UserMessageProps> = (props) => {
 
     return text
       .replace(/Video: (http.*mp4\n)/g, (match, p1) => {
-        return `<video controls class="h-[150px] w-[150px] rounded-[8px] mb-[10px]"><source src="${p1.trim()}" type="video/mp4">Your browser does not support the video tag.</video>`;
+        return `<video controls class="h-[150px] w-[150px] rounded-[8px] mb-[10px]"><source src="${p1.trim()}" type="video/mp4"><TranslatedLabel label="Your browser does not support the video tag." translationKey="your_browser_does_not_support_the_video_tag" /></video>`;
       })
       .replace(/Image: (http.*\n)/g, (match, p1) => {
         return `<img src="${p1.trim()}" class="h-[150px] w-[150px] max-w-full border border-newBgColorInner" />`;

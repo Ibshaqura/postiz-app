@@ -8,6 +8,7 @@ import { getPresetBackground } from '@gitroom/frontend/components/new-launch/pro
 import { FC } from 'react';
 import { useFormContext, useWatch } from 'react-hook-form';
 import { VideoOrImage } from '@gitroom/react/helpers/video.or.image';
+import { TranslatedLabel } from '@gitroom/react/translation/translated-label';
 
 const Icons = () => {
   return (
@@ -186,7 +187,7 @@ export const FacebookPreview: FC<{
       <div className="flex text-textLinkedin text-[12px] font-[400] items-center">
         <div className="flex flex-1 gap-[10px] items-center">
           <Icons />
-          <div className="">You & 12 other</div>
+          <div className=""><TranslatedLabel label="You &amp; 12 other" translationKey="you_and_12_other" /></div>
         </div>
         <div className="gap-[9px] items-center flex">
           <div>20 Comments</div>
@@ -206,7 +207,7 @@ export const FacebookPreview: FC<{
               fill="currentColor"
             />
           </svg>
-          <div>Like</div>
+          <div><TranslatedLabel label="Like" translationKey="like" /></div>
         </div>
         <div className="flex gap-[4px] items-center">
           <svg
@@ -240,7 +241,7 @@ export const FacebookPreview: FC<{
               />
             </g>
           </svg>
-          <div>Comments</div>
+          <div><TranslatedLabel label="Comments" translationKey="comments" /></div>
         </div>
         <div className="flex gap-[4px] items-center">
           <svg
@@ -255,13 +256,13 @@ export const FacebookPreview: FC<{
               fill="currentColor"
             />
           </svg>
-          <div>Share</div>
+          <div><TranslatedLabel label="Share" translationKey="share" /></div>
         </div>
       </div>
       {renderContent.length > 1 && (
         <>
           <div className="flex items-center">
-            <div className="text-[14px] font-[700]">Most relevant</div>
+            <div className="text-[14px] font-[700]"><TranslatedLabel label="Most relevant" translationKey="most_relevant" /></div>
             <div>
               <svg
                 width="20"
@@ -324,8 +325,8 @@ export const FacebookPreview: FC<{
                   <div className="flex font-[400] text-[12px] text-textLinkedin items-center">
                     <div className="flex gap-[16px] flex-1">
                       <div className="font-[700]">9h</div>
-                      <div className="font-[700]">Like</div>
-                      <div className="font-[700]">Reply</div>
+                      <div className="font-[700]"><TranslatedLabel label="Like" translationKey="like" /></div>
+                      <div className="font-[700]"><TranslatedLabel label="Reply" translationKey="reply" /></div>
                     </div>
                     <div className="flex gap-[4px]">
                       <div>2</div>

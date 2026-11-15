@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
 import { Logo } from '@gitroom/frontend/components/new-layout/logo';
 import { OAuthSelfHosted } from '@gitroom/frontend/components/oauth/self.hosted.component';
+import { TranslatedLabel } from '@gitroom/react/translation/translated-label';
 
 export const OAuthAuthorize: FC<{ logged: boolean }> = ({ logged }) => {
   const searchParams = useSearchParams();
@@ -227,9 +228,9 @@ export const OAuthAuthorize: FC<{ logged: boolean }> = ({ logged }) => {
                   account. It will be able to:
                 </div>
                 <ul className="text-[14px] list-disc list-inside space-y-[4px]">
-                  <li>Access your integrations and channels</li>
-                  <li>Create and schedule posts on your behalf</li>
-                  <li>Read your post analytics</li>
+                  <li><TranslatedLabel label="Access your integrations and channels" translationKey="access_your_integrations_and_channels" /></li>
+                  <li><TranslatedLabel label="Create and schedule posts on your behalf" translationKey="create_and_schedule_posts_on_your_behalf" /></li>
+                  <li><TranslatedLabel label="Read your post analytics" translationKey="read_your_post_analytics" /></li>
                 </ul>
               </div>
 

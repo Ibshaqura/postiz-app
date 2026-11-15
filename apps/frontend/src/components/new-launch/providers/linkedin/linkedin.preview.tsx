@@ -5,6 +5,7 @@ import { stripHtmlValidation } from '@gitroom/helpers/utils/strip.html.validatio
 import { textSlicer } from '@gitroom/helpers/utils/count.length';
 import { FC } from 'react';
 import { VideoOrImage } from '@gitroom/react/helpers/video.or.image';
+import { TranslatedLabel } from '@gitroom/react/translation/translated-label';
 
 const Icons = () => {
   return (
@@ -365,7 +366,7 @@ export const LinkedinPreview: FC<{
               fill="currentColor"
             />
           </svg>
-          <div>Like</div>
+          <div><TranslatedLabel label="Like" translationKey="like" /></div>
         </div>
         <div className="flex gap-[4px] items-center">
           <svg
@@ -381,7 +382,7 @@ export const LinkedinPreview: FC<{
               strokeWidth="2"
             />
           </svg>
-          <div>Comments</div>
+          <div><TranslatedLabel label="Comments" translationKey="comments" /></div>
         </div>
         <div className="flex gap-[4px] items-center">
           <svg
@@ -407,7 +408,7 @@ export const LinkedinPreview: FC<{
               </clipPath>
             </defs>
           </svg>
-          <div>Repost</div>
+          <div><TranslatedLabel label="Repost" translationKey="repost" /></div>
         </div>
         <div className="flex gap-[4px] items-center">
           <svg
@@ -422,7 +423,7 @@ export const LinkedinPreview: FC<{
               fill="currentColor"
             />
           </svg>
-          <div>Send</div>
+          <div><TranslatedLabel label="Send" translationKey="send" /></div>
         </div>
       </div>
       {renderContent.length > 1 && (
@@ -460,7 +461,7 @@ export const LinkedinPreview: FC<{
                     }}
                   />
                   <div className="flex gap-[6px] font-[400] text-[12px] text-textLinkedin items-center">
-                    <div className="font-[700]">Like</div>
+                    <div className="font-[700]"><TranslatedLabel label="Like" translationKey="like" /></div>
                     <div>•</div>
                     <div>
                       <svg
@@ -500,7 +501,7 @@ export const LinkedinPreview: FC<{
                     </div>
                     <div>19</div>
                     <div>|</div>
-                    <div className="font-[700]">Reply</div>
+                    <div className="font-[700]"><TranslatedLabel label="Reply" translationKey="reply" /></div>
                     <div>•</div>
                     <div>1 reply</div>
                   </div>

@@ -15,8 +15,10 @@ import clsx from 'clsx';
 import { Canonical } from '@gitroom/react/form/canonical';
 import { useIntegration } from '@gitroom/frontend/components/launches/helpers/use.integration';
 import { useSettings } from '@gitroom/frontend/components/launches/helpers/use.values';
+import { useT } from '@gitroom/react/translation/get.transation.service.client';
 
 const DevtoSettings: FC = () => {
+  const t = useT();
   const form = useSettings();
   const { date } = useIntegration();
   return (
@@ -29,7 +31,7 @@ const DevtoSettings: FC = () => {
       />
       <MediaComponent
         label="Cover picture"
-        description="Add a cover picture"
+        description={t('add_a_cover_picture', 'Add a cover picture')}
         {...form.register('main_image')}
       />
       <div className="mt-[20px]">

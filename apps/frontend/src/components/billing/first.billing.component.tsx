@@ -95,7 +95,7 @@ export const FirstBillingComponent = () => {
         <iframe
           className="h-full aspect-video min-w-[800px]"
           src="https://www.youtube.com/embed/BdsCVvEYgHU?si=vvhaZJ8I5oXXvVJS?autoplay=1"
-          title="Postiz Tutorial"
+          title={t('postiz_tutorial', 'Postiz Tutorial')}
           allow="autoplay"
           allowFullScreen
         />
@@ -144,7 +144,7 @@ export const FirstBillingComponent = () => {
         <div className="flex" onClick={showYouTube}>
           <div className="tablet:mb-[32px] cursor-pointer mt-[32px] flex gap-[10px] items-center underline hover:font-[700]">
             <PlatformIcon identifier="youtube" size={20} />
-            <div>See the power of Postiz (click here)</div>
+            <div>{t('see_the_power_of_postiz_click_here', 'See the power of Postiz (click here)')}</div>
           </div>
         </div>
 

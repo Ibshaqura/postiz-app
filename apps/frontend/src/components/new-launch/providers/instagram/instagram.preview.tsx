@@ -6,6 +6,7 @@ import { textSlicer } from '@gitroom/helpers/utils/count.length';
 import { FC } from 'react';
 import { VideoOrImage } from '@gitroom/react/helpers/video.or.image';
 import { SliderComponent } from '@gitroom/frontend/components/third-parties/slider.component';
+import { TranslatedLabel } from '@gitroom/react/translation/translated-label';
 
 export const InstagramPreview: FC<{
   maximumCharacters?: number;
@@ -211,7 +212,7 @@ export const InstagramPreview: FC<{
                     <div className="flex gap-[16px] flex-1">
                       <div className="font-[700]">30m</div>
                       <div className="font-[700]">8 Likes</div>
-                      <div className="font-[700]">Reply</div>
+                      <div className="font-[700]"><TranslatedLabel label="Reply" translationKey="reply" /></div>
                     </div>
                   </div>
                 </div>
